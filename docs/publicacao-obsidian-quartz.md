@@ -7,14 +7,14 @@ Documentar a publicação do vault **Regente fantasma** como um site público e 
 A configuração deve permitir:
 
 - Publicar notas tanto pelo Linux quanto pelo iPhone.
-- Publicar por padrão os arquivos da pasta \`site\`.
-- Manter a pasta \`spoilers\` fora da publicação.
+- Publicar por padrão os arquivos da pasta `site`.
+- Manter a pasta `spoilers` fora da publicação.
 - Preservar os arquivos originais no Obsidian.
 - Atualizar o site automaticamente após os envios ao GitHub.
 
 ## 2. Arquitetura
 
-\`\`\`text
+```text
 Obsidian — Regente fantasma
 │
 ├── site/               → Conteúdo publicável
@@ -24,11 +24,11 @@ Obsidian — Regente fantasma
 │
 └── spoilers/           → Conteúdo privado
     └── Nunca publicar
-\`\`\`
+```
 
 Fluxo de publicação:
 
-\`\`\`text
+```text
 Obsidian (Linux ou iPhone)
           │
           ▼
@@ -48,7 +48,7 @@ GitHub — kaze12/regentefantasma
           │
           ▼
 kaze12.github.io/regentefantasma
-\`\`\`
+```
 
 **Importante:** o Quartz Syncer sincroniza conteúdo do Obsidian para o repositório, não do repositório para o Obsidian. A sincronização das notas entre dispositivos é um processo separado.
 
@@ -58,32 +58,32 @@ kaze12.github.io/regentefantasma
 |---|---|
 | Site | https://kaze12.github.io/regentefantasma/ |
 | Repositório | https://github.com/kaze12/regentefantasma |
-| Branch | \`v5\` |
+| Branch | `v5` |
 | Gerador | Quartz 5 |
 | Plugin Obsidian | Quartz Syncer 2.2.0 |
 | Hospedagem | GitHub Pages |
 | Publicação | GitHub Actions |
-| Diretório publicável | \`site\` |
-| Diretório privado | \`spoilers\` |
-| Diretório de destino no repositório | \`content\` |
+| Diretório publicável | `site` |
+| Diretório privado | `spoilers` |
+| Diretório de destino no repositório | `content` |
 
 ### 3.1. Caminhos no Linux
 
 Vault identificado durante a configuração:
 
-\`\`\`text
+```text
 /mnt/taiwan_com/Offline/icloud/Obsidian/Regente fantasma
-\`\`\`
+```
 
 Projeto Quartz:
 
-\`\`\`text
+```text
 /mnt/taiwan_com/t_rpg/t_regente_fantasma
-\`\`\`
+```
 
-A configuração do Quartz Syncer utiliza o nome relativo \`site\`, não o caminho absoluto da pasta.
+A configuração do Quartz Syncer utiliza o nome relativo `site`, não o caminho absoluto da pasta.
 
-**Nota:** confirmar que o Obsidian está utilizando o mesmo vault que recebe as alterações do iPhone. Também foi identificado anteriormente um caminho de acesso ao iCloud em \`/home/icm/Nuvens/icloud/Obsidian/Regente fantasma\`.
+**Nota:** confirmar que o Obsidian está utilizando o mesmo vault que recebe as alterações do iPhone. Também foi identificado anteriormente um caminho de acesso ao iCloud em `/home/icm/Nuvens/icloud/Obsidian/Regente fantasma`.
 
 ## 4. Política de publicação e privacidade
 
@@ -91,32 +91,32 @@ A configuração do Quartz Syncer utiliza o nome relativo \`site\`, não o camin
 
 Todo arquivo destinado ao site deve permanecer dentro de:
 
-\`\`\`text
+```text
 Regente fantasma/site/
-\`\`\`
+```
 
 O Quartz Syncer deve utilizar:
 
 | Configuração | Valor |
 |---|---|
-| Vault root folder | \`site\` |
+| Vault root folder | `site` |
 | All notes publishable by default | On |
 
-Com essas opções, todas as notas elegíveis dentro de \`site\` podem ser publicadas sem adicionar \`publish: true\`.
+Com essas opções, todas as notas elegíveis dentro de `site` podem ser publicadas sem adicionar `publish: true`.
 
 ### 4.2. Conteúdo privado
 
 Todo conteúdo que não deve ser publicado deve permanecer em:
 
-\`\`\`text
+```text
 Regente fantasma/spoilers/
-\`\`\`
+```
 
 Essa pasta não pode aparecer entre os arquivos enviados ao GitHub.
 
-**Atenção:** com \`All notes publishable by default\` ativado, o Quartz Syncer ignora a propriedade \`publish\`. Portanto, \`publish: false\` **não impede a publicação** de uma nota que esteja dentro de \`site\`.
+**Atenção:** com `All notes publishable by default` ativado, o Quartz Syncer ignora a propriedade `publish`. Portanto, `publish: false` **não impede a publicação** de uma nota que esteja dentro de `site`.
 
-Para manter uma nota privada, mova-a para fora de \`site\`, preferencialmente para \`spoilers\`.
+Para manter uma nota privada, mova-a para fora de `site`, preferencialmente para `spoilers`.
 
 ### 4.3. Repositório público
 
@@ -145,12 +145,12 @@ Caminho completo:
 | Campo | Valor |
 |---|---|
 | Provider | GitHub |
-| Remote URL | \`https://github.com/kaze12/regentefantasma.git\` |
-| Branch | \`v5\` |
+| Remote URL | `https://github.com/kaze12/regentefantasma.git` |
+| Branch | `v5` |
 | Authentication type | Username & token/password |
-| Username | \`kaze12\` |
+| Username | `kaze12` |
 | Access token | Token pessoal do GitHub |
-| Vault root folder | \`site\` |
+| Vault root folder | `site` |
 
 Use **Test connection** para verificar a permissão de leitura e escrita.
 
@@ -162,8 +162,8 @@ Caminho completo:
 
 | Campo | Valor |
 |---|---|
-| Content folder | \`content\` |
-| Local Quartz repo path | \`/mnt/taiwan_com/t_rpg/t_regente_fantasma\` |
+| Content folder | `content` |
+| Local Quartz repo path | `/mnt/taiwan_com/t_rpg/t_regente_fantasma` |
 
 Na tela inicial do Quartz Syncer, manter **Publish to → Remote repository**.
 
@@ -175,9 +175,9 @@ Caminho completo:
 
 Ativar:
 
-\`All notes publishable by default\`
+`All notes publishable by default`
 
-Isso torna todas as notas da pasta \`site\` elegíveis para publicação.
+Isso torna todas as notas da pasta `site` elegíveis para publicação.
 
 ## 6. Configuração no iPhone
 
@@ -202,12 +202,12 @@ Preencher:
 | Campo | Valor |
 |---|---|
 | Provider | GitHub |
-| Remote URL | \`https://github.com/kaze12/regentefantasma.git\` |
-| Branch | \`v5\` |
+| Remote URL | `https://github.com/kaze12/regentefantasma.git` |
+| Branch | `v5` |
 | Authentication type | Username & token/password |
-| Username | \`kaze12\` |
+| Username | `kaze12` |
 | Access token | Token autorizado |
-| Vault root folder | \`site\` |
+| Vault root folder | `site` |
 
 Salvar a configuração.
 
@@ -229,10 +229,10 @@ Configurar:
 
 | Campo | Valor |
 |---|---|
-| Token name | \`Quartz Syncer iPhone\` |
-| Resource owner | \`kaze12\` |
+| Token name | `Quartz Syncer iPhone` |
+| Resource owner | `kaze12` |
 | Repository access | Only select repositories |
-| Selected repository | \`regentefantasma\` |
+| Selected repository | `regentefantasma` |
 | Repository permissions → Contents | Read and write |
 
 Para o envio de notas ao repositório já existente, não é necessário conceder permissões administrativas.
@@ -253,7 +253,7 @@ Depois:
 
 O resultado esperado é acesso de leitura e escrita.
 
-Se o teste continuar indicando \`read-only\`, verificar se o token foi efetivamente salvo e se possui a permissão **Contents: Read and write**.
+Se o teste continuar indicando `read-only`, verificar se o token foi efetivamente salvo e se possui a permissão **Contents: Read and write**.
 
 ### 6.5. Configurar a publicação por padrão
 
@@ -263,9 +263,9 @@ Caminho completo:
 
 Confirmar também:
 
-**Obsidian → Settings → Community plugins → Quartz Syncer → Git → Vault root folder → \`site\`**
+**Obsidian → Settings → Community plugins → Quartz Syncer → Git → Vault root folder → `site`**
 
-A segunda configuração é a responsável por excluir \`spoilers\` do escopo.
+A segunda configuração é a responsável por excluir `spoilers` do escopo.
 
 ## 7. Publicar notas
 
@@ -279,7 +279,7 @@ Ou utilizar o ícone do Quartz Syncer na barra lateral.
 
 No **Publication Center**:
 
-1. Abrir as categorias \`UNPUBLISHED\` e \`CHANGED\`.
+1. Abrir as categorias `UNPUBLISHED` e `CHANGED`.
 2. Conferir os arquivos identificados.
 3. Selecionar as notas desejadas.
 4. Clicar em **Publish to remote**.
@@ -293,7 +293,7 @@ Caminho completo:
 
 No **Publication Center**:
 
-1. Selecionar as notas de \`site\` com alterações pendentes.
+1. Selecionar as notas de `site` com alterações pendentes.
 2. Tocar em **Publish to remote**.
 3. Manter o Obsidian aberto até o término do envio.
 
@@ -313,7 +313,7 @@ https://kaze12.github.io/regentefantasma/
 
 As notas poderão aparecer no **Explorer**, na busca do Quartz ou nos links internos do site.
 
-Uma nota publicada não aparece necessariamente na página inicial: isso depende dos links existentes em \`index.md\`.
+Uma nota publicada não aparece necessariamente na página inicial: isso depende dos links existentes em `index.md`.
 
 ## 8. Imagens e anexos
 
@@ -323,21 +323,21 @@ Arquivos sem vínculos podem não ser enviados automaticamente.
 
 Na configuração inicial do projeto foi identificada esta imagem:
 
-\`\`\`text
+```text
 site/04 Locais/T. Livres 2026-10-13-21-52.png
-\`\`\`
+```
 
 Tamanho aproximado: 5,8 MiB.
 
 A publicação desse anexo ainda precisa ser confirmada. Verificar a seção **Advanced → Linked media** do Publication Center e conferir se o arquivo existe no repositório após o envio.
 
-Arquivos grandes podem atingir limites da hospedagem ou do GitHub. Manter os anexos que não serão publicados fora da pasta \`site\`.
+Arquivos grandes podem atingir limites da hospedagem ou do GitHub. Manter os anexos que não serão publicados fora da pasta `site`.
 
 ## 9. Publicação automática
 
 ### 9.1. Atualização do site
 
-Sempre que o Quartz Syncer envia alterações à branch \`v5\`, o GitHub Actions executa o processo de construção e implantação do Quartz.
+Sempre que o Quartz Syncer envia alterações à branch `v5`, o GitHub Actions executa o processo de construção e implantação do Quartz.
 
 Essa etapa já está configurada no repositório.
 
@@ -353,9 +353,9 @@ Exemplos:
 
 | Valor | Funcionamento |
 |---|---|
-| \`0\` | Desativado |
-| \`15\` | A cada 15 minutos |
-| \`60\` | A cada 60 minutos |
+| `0` | Desativado |
+| `15` | A cada 15 minutos |
+| `60` | A cada 60 minutos |
 
 O recurso exige que o Obsidian esteja em execução. A publicação automática fica pausada enquanto o Publication Center estiver aberto.
 
@@ -371,9 +371,9 @@ A opção **Auto-publish interval** é exclusiva do desktop. Portanto, o iPhone 
 
 | Problema | Causa possível | Solução |
 |---|---|---|
-| \`Connected read-only\` | Token ausente ou não salvo | Configurar **Access token** |
+| `Connected read-only` | Token ausente ou não salvo | Configurar **Access token** |
 | Falha de autorização | Token expirado ou com permissão insuficiente | Renovar token com **Contents: Read and write** |
-| Nota não aparece no Publication Center | Está fora de \`site\` ou não foi reconhecida como publicável | Conferir **Vault root folder** e **Frontmatter** |
+| Nota não aparece no Publication Center | Está fora de `site` ou não foi reconhecida como publicável | Conferir **Vault root folder** e **Frontmatter** |
 | Nota publicada não aparece no site | Build pendente ou com falha | Conferir **GitHub Actions** |
 | Anexo não aparece | Arquivo não foi reconhecido como mídia vinculada | Conferir **Advanced → Linked media** |
 | Alterações do iPhone não aparecem no Linux | Sincronização entre dispositivos ainda não concluída | Conferir a sincronização do vault |
@@ -385,10 +385,10 @@ Se a publicação falhar em um dispositivo, não altere imediatamente o conteúd
 
 - Nunca armazenar tokens em notas Markdown, arquivos do repositório ou capturas públicas.
 - Utilizar um token específico para cada dispositivo, preferencialmente.
-- Conceder acesso apenas ao repositório \`regentefantasma\`.
+- Conceder acesso apenas ao repositório `regentefantasma`.
 - Renovar ou substituir tokens expirados.
 - Revogar tokens de dispositivos perdidos.
-- Manter \`Vault root folder = site\` em todos os dispositivos.
+- Manter `Vault root folder = site` em todos os dispositivos.
 - Conferir a seleção de arquivos antes de publicações que envolvam conteúdo privado.
 - Não presumir que um repositório público oferece privacidade para arquivos omitidos da navegação do site.
 - Verificar periodicamente o histórico de execuções do GitHub Actions.
@@ -398,10 +398,10 @@ Se a publicação falhar em um dispositivo, não altere imediatamente o conteúd
 Conferido durante a preparação desta documentação:
 
 - Quartz 5 configurado e publicado pelo GitHub Pages.
-- Repositório \`kaze12/regentefantasma\`, branch \`v5\`.
-- Workflow \`.github/workflows/deploy.yml\` existente.
-- Arquivos publicados identificados: \`content/index.md\` e \`content/Regras/Regras de Jornada.md\`.
-- Pasta \`spoilers\` não identificada nos arquivos atuais da branch \`v5\`.
+- Repositório `kaze12/regentefantasma`, branch `v5`.
+- Workflow `.github/workflows/deploy.yml` existente.
+- Arquivos publicados identificados: `content/index.md` e `content/Regras/Regras de Jornada.md`.
+- Pasta `spoilers` não identificada nos arquivos atuais da branch `v5`.
 - Publicação direta pelo iPhone disponível, mas a autenticação de escrita no aparelho ainda precisa de confirmação.
 - Publicação automática por intervalo ainda precisa ser configurada ou validada.
 - Publicação da imagem de Terras Livres ainda não confirmada.
@@ -441,7 +441,7 @@ Conferido durante a preparação desta documentação:
 
 **Linked media:** anexos vinculados a notas publicadas.
 
-**All notes publishable by default:** torna todas as notas dentro do escopo elegíveis à publicação, ignorando a propriedade \`publish\`.
+**All notes publishable by default:** torna todas as notas dentro do escopo elegíveis à publicação, ignorando a propriedade `publish`.
 
 **Auto-publish interval:** frequência de publicação automática no desktop.
 
@@ -463,9 +463,9 @@ Conferido durante a preparação desta documentação:
 
 **Quartz 5:** gerador do site estático a partir das notas Markdown.
 
-**\`content\`:** pasta de entrada utilizada pelo Quartz.
+**`content`:** pasta de entrada utilizada pelo Quartz.
 
-**\`index.md\`:** arquivo Markdown da página inicial.
+**`index.md`:** arquivo Markdown da página inicial.
 
 **Build:** transformação das notas em páginas e arquivos estáticos.
 
